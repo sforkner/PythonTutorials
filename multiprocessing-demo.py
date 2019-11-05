@@ -11,7 +11,7 @@ def do_something(seconds):
 
 
 with concurrent.futures.ProcessPoolExecutor() as executor:
-    secs = [5, 5, 5, 5, 5, 5, 5, 5]
+    secs = [5, 4, 3, 2, 1, 2, 3, 4, 5]
     results = executor.map(do_something, secs)
 
     # for result in results:
