@@ -10,16 +10,15 @@ def do_something():
     print('Done Sleeping...')
 
 
-t1 = threading.Thread(target=do_something)
-t2 = threading.Thread(target=do_something)
-t3 = threading.Thread(target=do_something)
+threads = []
 
-t1.start()
-t2.start()
-t3.start()
-t1.join()
-t2.join()
-t3.join()
+for _ in range(10):
+    t = threading.Thread(target=do_something)
+    t.start()
+    threads.append(t)
+
+for thread in threads:
+    thread.join()
 
 finish = time.perf_counter()
 
